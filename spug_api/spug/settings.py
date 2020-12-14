@@ -76,10 +76,11 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'spug',
         'USER': 'root',
-        'PASSWORD': 'abc520224',
+        'PASSWORD': '123456',
         'HOST': '127.0.0.1',
         'PORT': '3306',
-    }
+        'OPTIONS': {'charset': 'utf8mb4'},
+    },
 }
 
 

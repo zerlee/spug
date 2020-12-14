@@ -51,81 +51,18 @@ Spug是面向中小型企业设计的轻量级无Agent的自动化运维平台�
 [Yearning — MYSQL 开源SQL语句审核平台](https://github.com/cookieY/Yearning)
 
 
-## 预览
-
-#### 主机批量执行
-![image](https://image.qbangmang.com/host-exec-2.0.png)
-
-#### 主机在线终端
-![image](https://image.qbangmang.com/host-console-2.0.png)
-
-#### 文件在线上传下载
-![文件管理](https://image.qbangmang.com/spug-host-file.png)
-
-#### 应用管理
-![image](https://image.qbangmang.com/app-2.0.png)
-![image](https://image.qbangmang.com/app-apply-2.0.png)
-
-#### 任务管理
-![image](https://image.qbangmang.com/task-2.0.png)
-![image](https://image.qbangmang.com/task-detail-2.0.png)
-#### 配置管理(支持KV,txt,json等格式)
-![image](https://image.qbangmang.com/service-conf-2.0.png)
-![image](https://image.qbangmang.com/service-conf-json-2.0.png)
-![image](https://image.qbangmang.com/conf-history-2.0.png)
-
-#### 监控报警
-![image](https://image.qbangmang.com/monitor-alarm-2.0.png)
-![image](https://image.qbangmang.com/monitor-add-2.0.png)
-
-#### 角色权限
-![image](https://image.qbangmang.com/role-2.0.png)
-
-## 更多功能
-如果你还想 Spug 支持新的特性，请点击打开 [FeatHub](https://feathub.com/openspug/spug) 进行投票，我们将综合考虑投票结果等因素来确定开发的优先级。
-
-[![Feature Requests](https://feathub.com/openspug/spug?format=svg)](https://feathub.com/openspug/spug)
-
-
-## 赞助
-<table>
-  <thead>
-    <tr>
-      <th align="center" style="width: 115px;">
-        <a href="https://www.ucloud.cn/site/active/kuaijie.html?invitation_code=C1xD0E5678FBA77">
-          <img src="https://image.qbangmang.com/ucloud.png" width="115px"><br>
-          <sub>UCloud</sub><br>
-          <sub>5 元/月云主机</sub>
-        </a>
-      </th>
-        <th align="center" style="width: 115px;">
-        <a href="https://www.aliyun.com/minisite/goods?userCode=8vdj3myc">
-          <img src="https://image.qbangmang.com/aliyun_quan.png" width="115px"><br>
-          <sub>阿里云通用券</sub><br>
-          <sub>300元限量免费领</sub>
-        </a>
-      </th>
-      <th align="center" style="width: 125px;">
-        <a href="http://www.magedu.com">
-          <img src="https://image.qbangmang.com/magedu-logo.jpeg" width="115px"><br>
-          <sub>马哥教育</sub><br>
-          <sub>IT人高薪职业学院</sub>
-        </a>
-      </th>
-    </tr>
-  </thead>
-</table>
-
-## 开发者群
-#### QQ群号: 783951751
-<div >
-   <img src="https://image.qbangmang.com/spug.png" width = "300" height = "300" alt="spug-qq" align=center />
-<div>
-
-#### 微信：关注Spug运维公众号加微信群、获取最新产品动态
-<div >
-   <img src="https://image.qbangmang.com/spug-weixin.jpeg" width = "300" height = "300" alt="spug-qq" align=center />
-<div>
-  
-## License & Copyright
-[AGPL-3.0](https://opensource.org/licenses/AGPL-3.0)
+## 报错
+1、
+```
+  File "/root/spug/spug_api/venv/lib64/python3.6/site-packages/django/db/backends/mysql/operations.py", line 146, in last_executed_query
+    query = query.decode(errors='replace')
+AttributeError: 'str' object has no attribute 'decode'
+```
+解决办法：
+注释掉下面两行
+```
+if query is not None:
+          query = query.decode(errors='replace')
+```
+2、 python manage.py makemigrations初始化数据库，提示No changes detected
+在app下创建migrations文件夹

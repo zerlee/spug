@@ -4,8 +4,13 @@
  * Released under the AGPL-3.0 License.
  */
 export default [
-  {icon: 'desktop', title: '工作台', auth: 'home.home.view', path: '/home'},
-  {icon: 'cloud-server', title: '主机管理', auth: 'host.host.view', path: '/host'},
+  {icon: 'desktop', title: '仪表板', auth: 'home.home.view', path: '/home'},
+  //{icon: 'cloud-server', title: '主机管理', auth: 'host.host.view', path: '/host'},
+  {
+    icon: 'cloud-server', title: '资产管理', auth: 'host.host.view', child: [
+      {title: '主机管理', auth: 'host.host.view', path: '/host'},
+    ]
+  },
   {
     icon: 'code', title: '批量执行', auth: 'exec.task.do|exec.template.view', child: [
       {title: '执行任务', auth: 'exec.task.do', path: '/exec/task'},
