@@ -5,7 +5,7 @@ from django.views.generic import View
 from libs import json_response, JsonParser, Argument, human_datetime
 from libs.channel import Channel
 from apps.exec.models import ExecTemplate
-from apps.host.models import Host
+from apps.asset.models import Host
 
 
 class TemplateView(View):

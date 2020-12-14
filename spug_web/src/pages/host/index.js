@@ -24,7 +24,7 @@ export default observer(function () {
         <SearchForm.Item span={6} title="主机别名">
           <Input allowClear value={store.f_name} onChange={e => store.f_name = e.target.value} placeholder="请输入"/>
         </SearchForm.Item>
-        <SearchForm.Item span={6} title="连接地址">
+        <SearchForm.Item span={6} title="公网IP址">
           <Input allowClear value={store.f_host} onChange={e => store.f_host = e.target.value} placeholder="请输入"/>
         </SearchForm.Item>
         <SearchForm.Item span={6}>

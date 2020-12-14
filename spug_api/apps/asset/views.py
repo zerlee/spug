@@ -6,7 +6,7 @@ from django.db.models import F
 from django.http.response import HttpResponseBadRequest
 from libs import json_response, JsonParser, Argument
 from apps.setting.utils import AppSetting
-from apps.host.models import Host
+from apps.asset.models import Host
 from apps.app.models import Deploy
 from apps.schedule.models import Task
 from apps.monitor.models import Detection
@@ -39,6 +39,9 @@ class HostView(View):
             Argument('hostname', handler=str.strip, help='请输入主机名或IP'),
             Argument('port', type=int, help='请输入SSH端口'),
             Argument('pkey', required=False),
+            Argument('privateip', required=True),
+            Argument('os', required=True),
+            Argument('networktype', required=True),
             Argument('desc', required=False),
             Argument('password', required=False),
         ).parse(request.body)
@@ -179,3 +182,50 @@ def post_parse(request):
         return json_response(data.decode())
     else:
         return HttpResponseBadRequest()
+
+
+class IdcView(View):
+    def get(self, request):
+        idc_id = request.GET.get('id')
+
+    def post(self, request):
+        form, error = JsonParser(
+            Argument('id', type=int, required=False),
+            Argument('location', help='机房位置'),
+            Argument('desc', required=False),
+        ).parse(request.body)
+        if error is None:
+
+            if form.id:
+                Idc.objects.filter(pk=form.pop('id')).update(**form)
+            elif Idc.objects.filter(name=form.name, deleted_by_id__isnull=True).exists():
+                return json_response(error=f'已存在的机房名称【{form.name}】')
+            else:
+                idc = Idc.objects.create(created_by=request.user, **form)
+
+    def patch(self, request):
+        form, error = JsonParser(
+            Argument('id', type=int, required=False),
+            Argument('location', help='机房位置'),
+            Argument('desc', required=False),
+        ).parse(request.body)
+        if error is None:
+            idc = Idc.objects.filter(pk=form.id).first()
+            if not idc:
+                return json_response(error='未找到机房')
+            count = Idc.objects.filter(location=idc.location, deleted_by_id__isnull=True).update(location=form.location)
+            return json_response(count)
+        return json_response(error=error)
+
+    def delete(self, request):
+        form, error = JsonParser(
+            Argument('id', type=int, help='请指定操作对象')
+        ).parse(request.GET)
+
+ 
+
+
+
+
+
+

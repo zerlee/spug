@@ -3,7 +3,7 @@
 # Released under the AGPL-3.0 License.
 from channels.generic.websocket import WebsocketConsumer
 from django_redis import get_redis_connection
-from apps.host.models import Host
+from apps.asset.models import Host
 from threading import Thread
 import json
 

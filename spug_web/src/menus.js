@@ -7,8 +7,9 @@ export default [
   {icon: 'desktop', title: '仪表板', auth: 'home.home.view', path: '/home'},
   //{icon: 'cloud-server', title: '主机管理', auth: 'host.host.view', path: '/host'},
   {
-    icon: 'cloud-server', title: '资产管理', auth: 'host.host.view', child: [
-      {title: '主机管理', auth: 'host.host.view', path: '/host'},
+    icon: 'cloud-server', title: '资产管理', auth: 'asset.host.view', child: [
+      {title: '主机管理', auth: 'asset.host.view', path: '/host'},
+      {title: '机房管理', auth: 'asset.idc.view', path: '/idc'},
     ]
   },
   {

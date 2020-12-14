@@ -181,7 +181,7 @@ class ComForm extends React.Component {
               <Input placeholder="请输入主机名称"/>
             )}
           </Form.Item>
-          <Form.Item required label="连接地址" style={{marginBottom: 0}}>
+          <Form.Item required label="公网IP" style={{marginBottom: 0}}>
             <Form.Item style={{display: 'inline-block', width: 'calc(30%)'}}>
               {getFieldDecorator('username', {initialValue: info['username']})(
                 <Input addonBefore="ssh" placeholder="用户名"/>
@@ -203,6 +203,21 @@ class ComForm extends React.Component {
                     onChange={this.handleUploadChange}>
               {fileList.length === 0 ? <Button loading={uploading} icon="upload">点击上传</Button> : null}
             </Upload>
+          </Form.Item>
+          <Form.Item required label="内网IP">
+            {getFieldDecorator('name', {initialValue: info['name']})(
+              <Input placeholder="请输入内网IP"/>
+            )}
+          </Form.Item>
+          <Form.Item required label="操作系统">
+            {getFieldDecorator('name', {initialValue: info['name']})(
+              <Input placeholder="请输入操作系统"/>
+            )}
+          </Form.Item>
+          <Form.Item required label="网络类型">
+            {getFieldDecorator('name', {initialValue: info['name']})(
+              <Input placeholder="请输入网络类型"/>
+            )}
           </Form.Item>
           <Form.Item label="备注信息">
             {getFieldDecorator('desc', {initialValue: info['desc']})(

@@ -8,7 +8,7 @@ from apscheduler.triggers.cron import CronTrigger
 from apps.schedule.scheduler import Scheduler
 from apps.schedule.models import Task, History
 from apps.schedule.executors import dispatch
-from apps.host.models import Host
+from apps.asset.models import Host
 from django.conf import settings
 from libs import json_response, JsonParser, Argument, human_datetime
 import json

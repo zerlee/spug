@@ -3,7 +3,7 @@
 # Released under the AGPL-3.0 License.
 from django.views.generic import View
 from django_redis import get_redis_connection
-from apps.host.models import Host
+from apps.asset.models import Host
 from apps.file.utils import FileResponseAfter, parse_sftp_attr
 from libs import json_response, JsonParser, Argument
 from functools import partial

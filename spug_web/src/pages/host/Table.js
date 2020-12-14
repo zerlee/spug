@@ -62,7 +62,10 @@ class ComTable extends React.Component {
           }}>
           <Table.Column title="类别" dataIndex="zone"/>
           <Table.Column title="主机名称" dataIndex="name" sorter={(a, b) => a.name.localeCompare(b.name)}/>
-          <Table.Column title="连接地址" dataIndex="hostname" sorter={(a, b) => a.name.localeCompare(b.name)}/>
+          <Table.Column title="公网IP" dataIndex="hostname" sorter={(a, b) => a.name.localeCompare(b.name)}/>
+          <Table.Column title="内网IP" dataIndex="privateip" sorter={(a, b) => a.name.localeCompare(b.name)}/>
+          <Table.Column title="操作系统" dataIndex="os" sorter={(a, b) => a.name.localeCompare(b.name)}/>
+          <Table.Column title="网络类型" dataIndex="networktype" sorter={(a, b) => a.name.localeCompare(b.name)}/>
           <Table.Column width={100} title="端口" dataIndex="port"/>
           <Table.Column ellipsis title="备注信息" dataIndex="desc"/>
           {hasPermission('host.host.edit|host.host.del|host.host.console') && (

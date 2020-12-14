@@ -2,7 +2,7 @@
 # Copyright: (c) <spug.dev@gmail.com>
 # Released under the AGPL-3.0 License.
 from django.db import close_old_connections
-from apps.host.models import Host
+from apps.asset.models import Host
 from socket import socket
 import subprocess
 import platform

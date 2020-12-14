@@ -14,7 +14,11 @@ class Host(models.Model, ModelMixin):
     hostname = models.CharField(max_length=50)
     port = models.IntegerField()
     username = models.CharField(max_length=50)
+    privateip = models.GenericIPAddressField(protocol='IPv4')
+    os = models.CharField(max_length=10)
+    networktype = models.CharField(max_length=10)
     pkey = models.TextField(null=True)
+
     desc = models.CharField(max_length=255, null=True)
 
     created_at = models.CharField(max_length=20, default=human_datetime)
@@ -35,4 +39,21 @@ class Host(models.Model, ModelMixin):
 
     class Meta:
         db_table = 'hosts'
+        ordering = ('-id',)
+
+class Idc(models.Model, ModelMixin):
+    name = models.CharField(max_length=50)
+    localtion = models.CharField(max_length=50)
+    desc = models.CharField(max_length=255, null=True)
+
+    created_at = models.CharField(max_length=20, default=human_datetime)
+    created_by = models.ForeignKey(User, models.PROTECT, related_name='+')
+    deleted_at = models.CharField(max_length=20, null=True)
+    deleted_by = models.ForeignKey(User, models.PROTECT, related_name='+', null=True)
+
+    def __repr__(self):
+        return '<Idc %r>' % self.name
+
+    class Meta:
+        db_table = 'idc'
         ordering = ('-id',)

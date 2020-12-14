@@ -4,7 +4,7 @@
 from django_redis import get_redis_connection
 from django.conf import settings
 from libs.utils import AttrDict, human_time, human_datetime, parse_time
-from apps.host.models import Host
+from apps.asset.models import Host
 from apps.notify.models import Notify
 from apps.deploy.models import DeployRequest
 from concurrent import futures

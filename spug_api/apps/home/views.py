@@ -3,7 +3,7 @@
 # Released under the AGPL-3.0 License.
 from django.db.models import F
 from apps.app.models import App
-from apps.host.models import Host
+from apps.asset.models import Host
 from apps.schedule.models import Task
 from apps.monitor.models import Detection
 from apps.alarm.models import Alarm

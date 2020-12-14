@@ -4,7 +4,7 @@
 from queue import Queue
 from threading import Thread
 from libs.ssh import AuthenticationException
-from apps.host.models import Host
+from apps.asset.models import Host
 from django.db import close_old_connections
 import subprocess
 import socket

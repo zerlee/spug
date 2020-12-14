@@ -36,7 +36,7 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'channels',
     'apps.account',
-    'apps.host',
+    'apps.asset',
     'apps.setting',
     'apps.exec',
     'apps.schedule',
@@ -110,7 +110,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
-        'APP_DIRS': False,
+        'APP_DIRS': True,
     },
 ]
 

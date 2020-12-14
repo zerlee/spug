@@ -10,7 +10,7 @@ from libs import json_response, JsonParser, Argument, human_datetime, human_time
 from apps.deploy.models import DeployRequest
 from apps.app.models import Deploy, DeployExtend2
 from apps.deploy.utils import deploy_dispatch, Helper
-from apps.host.models import Host
+from apps.asset.models import Host
 from collections import defaultdict
 from threading import Thread
 from datetime import datetime
