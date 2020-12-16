@@ -14,8 +14,8 @@ export default [{
     ]
   }]
 }, {
-  key: 'host',
-  label: '主机管理',
+  key: 'asset',
+  label: '资产管理',
   pages: [{
     key: 'host',
     label: '主机管理',
@@ -26,11 +26,21 @@ export default [{
       {key: 'del', label: '删除主机'},
       {key: 'console', label: 'Console'},
     ]
-  }, {
+  },{
     key: 'console',
     label: 'Console',
     perms: [
       {key: 'manager', label: '文件管理器'},
+    ]
+  },{
+    key: 'idc',
+    label: '机房管理',
+    perms: [
+      {key: 'view', label: '查看应用'},
+      {key: 'add', label: '新建应用'},
+      {key: 'edit', label: '编辑应用'},
+      {key: 'del', label: '删除应用'},
+      {key: 'config', label: '查看配置'},
     ]
   }]
 }, {

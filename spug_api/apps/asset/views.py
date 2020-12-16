@@ -187,6 +187,7 @@ def post_parse(request):
 class IdcView(View):
     def get(self, request):
         idc_id = request.GET.get('id')
+        return json_response({'localtion': localtion})
 
     def post(self, request):
         form, error = JsonParser(
@@ -198,10 +199,11 @@ class IdcView(View):
 
             if form.id:
                 Idc.objects.filter(pk=form.pop('id')).update(**form)
-            elif Idc.objects.filter(name=form.name, deleted_by_id__isnull=True).exists():
-                return json_response(error=f'已存在的机房名称【{form.name}】')
+            elif Idc.objects.filter(location=form.localtion, deleted_by_id__isnull=True).exists():
+                return json_response(error=f'已存在的机房名称【{form.localtion}】')
             else:
                 idc = Idc.objects.create(created_by=request.user, **form)
+        return json_response(error=error)
 
     def patch(self, request):
         form, error = JsonParser(

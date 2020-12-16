@@ -13,7 +13,7 @@ import envStore from 'pages/config/environment/store';
 import appStore from 'pages/config/app/store';
 import requestStore from 'pages/deploy/request/store';
 import execStore from 'pages/exec/task/store';
-import hostStore from 'pages/host/store';
+import hostStore from 'pages/asset/host/store';
 
 class LoginIndex extends React.Component {
   constructor(props) {

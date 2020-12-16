@@ -8,7 +8,7 @@ import { observer } from 'mobx-react';
 import { Form, Select, Button, Icon } from "antd";
 import { hasHostPermission } from 'libs';
 import store from './store';
-import hostStore from 'pages/host/store';
+import hostStore from 'pages/asset/host/store';
 import styles from './index.module.css';
 
 @observer

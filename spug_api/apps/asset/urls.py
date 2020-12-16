@@ -7,7 +7,7 @@ from .views import *
 
 urlpatterns = [
     path('idc/', IdcView.as_view()),
-    path('host', HostView.as_view()),
+    path('host/', HostView.as_view()),
     path('import/', post_import),
     path('parse/', post_parse),
     

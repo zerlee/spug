@@ -10,7 +10,7 @@ import { Action } from 'components';
 import ComForm from './Form';
 import { http, hasPermission } from 'libs';
 import store from './store';
-import hostStore from '../host/store';
+import hostStore from '../asset/host/store';
 import lds from 'lodash';
 import groupStore from "pages/alarm/group/store";
 

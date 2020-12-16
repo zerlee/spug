@@ -7,7 +7,7 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import { Modal, Form, Transfer, message, Alert } from 'antd';
 import http from 'libs/http';
-import hostStore from 'pages/host/store';
+import hostStore from 'pages/asset/host/store';
 import store from './store';
 
 @observer

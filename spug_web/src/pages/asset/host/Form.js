@@ -37,7 +37,7 @@ class ComForm extends React.Component {
     formData['id'] = store.record.id;
     const file = this.state.fileList[0];
     if (file && file.data) formData['pkey'] = file.data;
-    http.post('/api/host/', formData)
+    http.post('/api/asset/host/', formData)
       .then(res => {
         if (res === 'auth fail') {
           if (formData.pkey) {
@@ -62,7 +62,7 @@ class ComForm extends React.Component {
   handleConfirm = (formData) => {
     if (this.state.password) {
       formData['password'] = this.state.password;
-      return http.post('/api/host/', formData).then(res => {
+      return http.post('/api/asset/host/', formData).then(res => {
         message.success('验证成功');
         store.formVisible = false;
         store.fetchRecords()
@@ -115,7 +115,7 @@ class ComForm extends React.Component {
             </Form.Item>
           </Form>
         ),
-        onOk: () => http.patch('/api/host/', {id: store.record.id, zone: this.state.editZone})
+        onOk: () => http.patch('/api/asset/host/', {id: store.record.id, zone: this.state.editZone})
           .then(res => {
             message.success(`成功修改${res}条记录`);
             store.fetchRecords();
@@ -135,7 +135,7 @@ class ComForm extends React.Component {
     this.setState({uploading: true});
     const formData = new FormData();
     formData.append('file', file);
-    http.post('/api/host/parse/', formData)
+    http.post('/api/asset/parse/', formData)
       .then(res => {
         file.data = res;
         this.setState({fileList: [file]})
@@ -205,17 +205,17 @@ class ComForm extends React.Component {
             </Upload>
           </Form.Item>
           <Form.Item required label="内网IP">
-            {getFieldDecorator('name', {initialValue: info['name']})(
+            {getFieldDecorator('privateip', {initialValue: info['privateip']})(
               <Input placeholder="请输入内网IP"/>
             )}
           </Form.Item>
           <Form.Item required label="操作系统">
-            {getFieldDecorator('name', {initialValue: info['name']})(
+            {getFieldDecorator('os', {initialValue: info['os']})(
               <Input placeholder="请输入操作系统"/>
             )}
           </Form.Item>
           <Form.Item required label="网络类型">
-            {getFieldDecorator('name', {initialValue: info['name']})(
+            {getFieldDecorator('networktype', {initialValue: info['networktype']})(
               <Input placeholder="请输入网络类型"/>
             )}
           </Form.Item>

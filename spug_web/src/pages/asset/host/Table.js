@@ -27,7 +27,7 @@ class ComTable extends React.Component {
       title: '删除确认',
       content: `确定要删除【${text['name']}】?`,
       onOk: () => {
-        return http.delete('/api/host/', {params: {id: text.id}})
+        return http.delete('/api/asset/host/', {params: {id: text.id}})
           .then(() => {
             message.success('删除成功');
             store.fetchRecords()

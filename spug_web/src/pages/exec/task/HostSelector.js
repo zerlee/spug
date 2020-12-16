@@ -7,7 +7,7 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import { Modal, Table, Input, Button, Select } from 'antd';
 import { SearchForm } from 'components';
-import store from '../../host/store';
+import store from '../../asset/host/store';
 
 @observer
 class HostSelector extends React.Component {

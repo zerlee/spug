@@ -10,7 +10,7 @@ import { LinkButton, ACEditor } from 'components';
 import TemplateSelector from '../exec/task/TemplateSelector';
 import { http, cleanCommand, hasHostPermission } from 'libs';
 import store from './store';
-import hostStore from '../host/store';
+import hostStore from '../asset/host/store';
 import styles from './index.module.css';
 import moment from 'moment';
 import lds from 'lodash';
