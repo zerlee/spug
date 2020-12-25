@@ -8,26 +8,16 @@ import http from 'libs/http';
 
 class Store {
   @observable records = [];
-  @observable localtion = [];
-  @observable permRecords = [];
   @observable record = {};
   @observable isFetching = false;
   @observable formVisible = false;
-  @observable importVisible = false;
 
   @observable f_name;
-  @observable f_localtion
 
   fetchRecords = () => {
     this.isFetching = true;
     return http.get('/api/asset/idc/')
-      .then((localtion) => {
-        this.localtion = localtion;
-        // this.permRecords = hosts.filter(item => perms.includes(item.id));
-        // for (let item of hosts) {
-        //   this.idMap[item.id] = item
-        // }
-      })
+      .then(res => this.records = res)
       .finally(() => this.isFetching = false)
   };
 

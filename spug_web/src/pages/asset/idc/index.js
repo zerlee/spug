@@ -15,7 +15,7 @@ export default observer(function () {
   return (
     <AuthCard auth="asset.idc.view">
       <SearchForm>
-        <SearchForm.Item span={8} title="机房位置">
+        <SearchForm.Item span={8} title="机房名称">
           <Input allowClear value={store.f_name} onChange={e => store.f_name = e.target.value} placeholder="请输入"/>
         </SearchForm.Item>
         <SearchForm.Item span={8}>

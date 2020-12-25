@@ -50,7 +50,7 @@ class ComTable extends React.Component {
             pageSizeOptions: ['10', '20', '50', '100']
           }}>
           <Table.Column title="序号" key="id" render={(_, __, index) => index + 1}/>
-          <Table.Column title="机房位置" dataIndex="location"/>
+          <Table.Column title="机房名称" dataIndex="name"/>
           <Table.Column ellipsis title="备注" dataIndex="desc"/>
           {hasPermission('asset.idc.edit|asset.idc.del|asset.idc.view_config') && (
             <Table.Column title="操作" render={info => (

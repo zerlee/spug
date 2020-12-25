@@ -18,6 +18,8 @@ class Host(models.Model, ModelMixin):
     os = models.CharField(max_length=10)
     networktype = models.CharField(max_length=10)
     pkey = models.TextField(null=True)
+    owner = models.CharField(max_length=10, null=True)
+    idc = models.ForeignKey(verbose_name='所属机房', to = 'Idc', to_field='name', null=True, on_delete=models.CASCADE)
 
     desc = models.CharField(max_length=255, null=True)
 
@@ -42,8 +44,7 @@ class Host(models.Model, ModelMixin):
         ordering = ('-id',)
 
 class Idc(models.Model, ModelMixin):
-    name = models.CharField(max_length=50)
-    localtion = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, unique=True)
     desc = models.CharField(max_length=255, null=True)
 
     created_at = models.CharField(max_length=20, default=human_datetime)

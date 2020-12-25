@@ -219,6 +219,11 @@ class ComForm extends React.Component {
               <Input placeholder="请输入网络类型"/>
             )}
           </Form.Item>
+          <Form.Item required label="负责人">
+            {getFieldDecorator('owner', {initialValue: info['owner']})(
+              <Input placeholder="请输入负责人"/>
+            )}
+          </Form.Item>
           <Form.Item label="备注信息">
             {getFieldDecorator('desc', {initialValue: info['desc']})(
               <Input.TextArea placeholder="请输入主机备注信息"/>

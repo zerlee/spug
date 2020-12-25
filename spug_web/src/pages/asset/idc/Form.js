@@ -43,9 +43,9 @@ class ComForm extends React.Component {
         confirmLoading={this.state.loading}
         onOk={this.handleSubmit}>
         <Form labelCol={{span: 6}} wrapperCol={{span: 14}}>
-          <Form.Item required label="机房位置">
-            {getFieldDecorator('localtion', {initialValue: info['localtion']})(
-              <Input placeholder="请输入机房位置，例如：阿里云"/>
+          <Form.Item required label="机房名称">
+            {getFieldDecorator('name', {initialValue: info['name']})(
+              <Input placeholder="请输入机房名称，例如：阿里云"/>
             )}
           </Form.Item>
           <Form.Item label="备注信息">
